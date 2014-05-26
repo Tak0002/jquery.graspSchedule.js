@@ -7,4 +7,4 @@ This plug-in support grasp of complex schedules.You can use it for Life-log appl
 Demo
 ===================
 
-See http://mindmup.github.com/bootstrap-wysiwyg/
+See http://tak0002.github.io/jquery.graspSchedule.js/
