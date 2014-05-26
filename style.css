@@ -2,6 +2,15 @@ body{
     background-color: #2c3e50;
     color: #ecf0f1;
 }
+h1{
+    margin:20px;
+}
+p{
+    margin:20px;
+}
+#howtouse{
+    margin:20px;
+}
 .schedule, .schedule2{
     position: absolute;
     width: 400px;
@@ -40,8 +49,8 @@ body{
     height: 0px;
 }
 #test1{
-    margin-top: 10px;
-    margin-left:10px;
+    margin-top: 50px;
+    margin-left:20px;
     width: 2px;
 }
 #test2{
