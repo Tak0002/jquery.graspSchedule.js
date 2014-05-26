@@ -6,6 +6,11 @@
     $.fn.graspSchedule = function(paramData) {
         var jqueryThis = this;
         var timeList = new Array();
+        var extractNum = function (str) {
+            var num = new String(str).match(/\d/g);
+            num = num.join("");
+            return parseInt(num);
+        };
         var checkParamDate = function() {
             if (typeof paramData === "undefined") {
                 return false;
@@ -36,7 +41,42 @@
             if (typeof paramData.options.classnames.event === "undefined") {
                 paramData.options.classnames.event = 'event';
             }
+            if(typeof paramData.options.css === "undefined"){
+                paramData.options.css = {
+                    event:{},
+                    schedule:{},
+                    zIndexStart:0,
+                    marginTop:"0px",
+                    marginLeft:"0px"
+                };
+            }
             return true;
+        };
+        var getEventHight= function(eventId){
+            if(paramData.events[eventId].css && paramData.events[eventId].css.height){
+                return extractNum(paramData.events[eventId].css.height);
+            }
+            if(paramData.options.css.event && paramData.options.css.event.height){
+                return extractNum(paramData.options.css.event.height);
+            }
+            var id2 = paramData.options.classnames.event + eventId + "forTakeHeight";
+            jqueryThis.append("<div class='" + paramData.options.classnames.event + "' id='" + id2 + "'>" + paramData.events[eventId].title + "<br>" + paramData.events[eventId].date + "</div>");
+            var height = $("#" + id2).css("height");
+            $("#" + id2).remove();
+            return extractNum(height);
+        };
+        var getScheduleHight= function(scheduleId){
+            if(paramData.schedules[scheduleId].css && paramData.schedules[scheduleId].css.height){
+                return extractNum(paramData.schedules[scheduleId].css.height);
+            }
+            if(paramData.options.css.schedule && paramData.options.css.schedule.height){
+                return extractNum(paramData.options.css.schedule.height);
+            }
+            var id2 = paramData.options.classnames.schedule + scheduleId + "forTakeHeight";
+            jqueryThis.append("<div class='" + paramData.options.classnames.schedule + "' id='" + id2 + "'>" + paramData.schedules[scheduleId].title + "<br>" + paramData.schedules[scheduleId].start + "〜" + paramData.schedules[scheduleId].end + "</div>");
+            var height = $("#" + id2).css("height");
+            $("#" + id2).remove();
+            return extractNum(height);
         };
         var calculateTime = function() {
             for (i1 = 0; i1 < paramData.schedules.length; i1++) {
@@ -59,16 +99,16 @@
             );
             for (i3 = 0; i3 < timeList.length; i3++) {
                 if (timeList[i3].kind === 'start') {
-                    var height = 70;
+                    var height = getScheduleHight(timeList[i3].id);
                     for (i4 = i3 + 1; i4 < timeList.length; i4++) {
                         if (timeList[i4].kind === 'end' && timeList[i4].id === timeList[i3].id) {
                             break;
                         }
                         if (timeList[i4].kind === 'event') {
-                            height = height + 65;
+                            height = height + getEventHight(timeList[i4].id) + 15;
                         }
                         if (timeList[i4].kind === 'start') {
-                            height = height + 80;
+                            height = height + getScheduleHight(timeList[i4].id) + 10;
                         }
                     }
                     paramData.schedules[timeList[i3].id].height = height;
@@ -76,7 +116,7 @@
             }
         };
         var drawBlockSchedule = function() {
-            var marginTop = 10;
+            var marginTop = 0;
             var marginLeft = 0;
             var overSchedule = new Array();
             var mostFrontSchedule = null;
@@ -84,32 +124,56 @@
             var drawEvent = function(id) {
                 var id2 = paramData.options.classnames.event + id;
                 jqueryThis.append("<div class='" + paramData.options.classnames.event + "' id='" + id2 + "'>" + paramData.events[id].title + "<br>" + paramData.events[id].date + "</div>");
-                $("#" + id2).css({
-                    marginTop: marginTop,
-                    marginLeft: marginLeft,
-                    zIndex: zIndex
-                });
+                var css = {};
+                if(paramData.events[id].css){
+                    var css = paramData.events[id].css;
+                }
+                css.marginTop = marginTop;
+                css.marginLeft = marginLeft;
+                css.zIndex = zIndex;
+                $("#" + id2).css(css);
+                return extractNum($("#" + id2).css("height"));
             };
+/*
+ * var css = paramData.schedules[id].css;がなぜが上手くいかない。
+ *
+            var drawSchedule = function(id) {
+                var id2 = paramData.options.classnames.schedule + id;
+                var css = {};
+                if(paramData.schedules[id].css){
+                    var css = paramData.schedules[id].css;
+                }
+                css.height = paramData.schedules[id].height;
+                css.marginTop = marginTop;
+                css.marginLeft = marginLeft;
+                css.zIndex = zIndex;
+                jqueryThis.append("<div class='" + paramData.options.classnames.schedule + "' id='" + id2 + "'>" + paramData.schedules[id].title + "<br>" + paramData.schedules[id].start + "〜" + paramData.schedules[id].end + "</div>");
+                $("#" + id2).css(css);
+                return paramData.schedules[id].height;
+            };
+ */
             var drawSchedule = function(id) {
                 var id2 = paramData.options.classnames.schedule + id;
                 jqueryThis.append("<div class='" + paramData.options.classnames.schedule + "' id='" + id2 + "'>" + paramData.schedules[id].title + "<br>" + paramData.schedules[id].start + "〜" + paramData.schedules[id].end + "</div>");
-                $("#" + id2).css({
+                var css = {
                     height: paramData.schedules[id].height,
                     marginTop: marginTop,
                     marginLeft: marginLeft,
                     zIndex: zIndex
-                });
+                };
+                $("#" + id2).css(css);
                 return paramData.schedules[id].height;
             };
+            
             for (i5 = 0; i5 < timeList.length; i5++) {
                 var kind = timeList[i5].kind;
                 zIndex++;
                 if (kind === 'event') {
-                    drawEvent(timeList[i5].id);
-                    marginTop = marginTop + 70;
+                    
+                    marginTop = marginTop + drawEvent(timeList[i5].id) + 20;
                 } else if (kind === 'start') {
                     drawSchedule(timeList[i5].id);
-                    marginTop = marginTop + 70;
+                    marginTop = marginTop + getScheduleHight(timeList[i5].id);
                     overSchedule.push({id: timeList[i5].id, left: marginLeft + 10});
                     mostFrontSchedule = timeList[i5].id;
                     marginLeft = marginLeft + 10;
