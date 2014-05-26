@@ -50,6 +50,15 @@
                     marginLeft:"0px"
                 };
             }
+            if(typeof paramData.options.css.zIndexStart === "undefined"){
+                paramData.options.css.zIndexStart = 0;
+            }
+            if(typeof paramData.options.css.marginTop === "undefined"){
+                paramData.options.css.marginTop = "0px";
+            }
+            if(typeof paramData.options.css.marginLeft === "undefined"){
+                paramData.options.css.marginLeft = "0px";                
+            }
             return true;
         };
         var getEventHight= function(eventId){
@@ -67,7 +76,6 @@
         };
         var getScheduleHight= function(scheduleId){
             if(paramData.schedules[scheduleId].css && paramData.schedules[scheduleId].css.height){
-                //CSSプロパティの値が変わってしまう
                 return extractNum(paramData.schedules[scheduleId].css.height);
             }
             if(paramData.options.css.schedule && paramData.options.css.schedule.height){
@@ -118,11 +126,11 @@
             }
         };
         var drawBlockSchedule = function() {
-            var marginTop = 0;
-            var marginLeft = 0;
+            var marginTop = extractNum(paramData.options.css.marginTop);
+            var marginLeft = extractNum(paramData.options.css.marginLeft);
             var overSchedule = new Array();
             var mostFrontSchedule = null;
-            var zIndex = 0;
+            var zIndex = extractNum(paramData.options.css.zIndexStart);
             var drawEvent = function(id) {
                 var id2 = paramData.options.classnames.event + id;
                 jqueryThis.append("<div class='" + paramData.options.classnames.event + "' id='" + id2 + "'>" + paramData.events[id].title + "<br>" + paramData.events[id].date + "</div>");
@@ -172,7 +180,7 @@
                         }
                     }
                     if (overSchedule.length < 1) {
-                        marginLeft = 0;
+                        marginLeft = extractNum(paramData.options.css.marginLeft);
                         marginTop = marginTop + 10;
                     } else if (overSchedule[overSchedule.length - 1].id !== mostFrontSchedule) {
                         marginLeft = overSchedule[overSchedule.length - 1].left;
