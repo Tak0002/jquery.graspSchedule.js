@@ -5,11 +5,17 @@ body{
 .schedule, .schedule2{
     position: absolute;
     width: 400px;
-    height: 70px;
     background-color: #c0392b;
     border: #ecf0f1 solid 1px;
     padding: 3px;
 }
+.schedule{
+    height: 70px;
+}
+.schedule2{
+    height: 70px;
+}
+
 .schedule:hover, .schedule2:hover{
     background-color: #e74c3c;
 }
@@ -17,18 +23,26 @@ body{
     position: absolute;
     margin-left: 40px;
     width: 350px;
-    height: 50px;
     background-color: #2980b9;
     padding: 3px;
+}
+.event{
+    //height: 100px;
+}
+.event2{
+    height: 50px;
 }
 .event:hover, .event2:hover{
     background-color: #3498db;
 }
 .test{
     position: relative;
+    height: 0px;
 }
 #test1{
+    margin-top: 10px;
     margin-left:10px;
+    width: 2px;
 }
 #test2{
     margin-left: 500px;
