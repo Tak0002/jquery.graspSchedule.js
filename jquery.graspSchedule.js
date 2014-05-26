@@ -67,9 +67,11 @@
         };
         var getScheduleHight= function(scheduleId){
             if(paramData.schedules[scheduleId].css && paramData.schedules[scheduleId].css.height){
+                //CSSプロパティの値が変わってしまう
                 return extractNum(paramData.schedules[scheduleId].css.height);
             }
             if(paramData.options.css.schedule && paramData.options.css.schedule.height){
+
                 return extractNum(paramData.options.css.schedule.height);
             }
             var id2 = paramData.options.classnames.schedule + scheduleId + "forTakeHeight";
@@ -126,7 +128,7 @@
                 jqueryThis.append("<div class='" + paramData.options.classnames.event + "' id='" + id2 + "'>" + paramData.events[id].title + "<br>" + paramData.events[id].date + "</div>");
                 var css = {};
                 if(paramData.events[id].css){
-                    var css = paramData.events[id].css;
+                    css = $.extend(true, {}, paramData.events[id].css);
                 }
                 css.marginTop = marginTop;
                 css.marginLeft = marginLeft;
@@ -134,16 +136,14 @@
                 $("#" + id2).css(css);
                 return extractNum($("#" + id2).css("height"));
             };
-/*
- * var css = paramData.schedules[id].css;がなぜが上手くいかない。
- *
+
             var drawSchedule = function(id) {
                 var id2 = paramData.options.classnames.schedule + id;
                 var css = {};
                 if(paramData.schedules[id].css){
-                    var css = paramData.schedules[id].css;
+                    css = $.extend(true, {}, paramData.schedules[id].css);
                 }
-                css.height = paramData.schedules[id].height;
+                css.height = paramData.schedules[id].height + "px";
                 css.marginTop = marginTop;
                 css.marginLeft = marginLeft;
                 css.zIndex = zIndex;
@@ -151,20 +151,6 @@
                 $("#" + id2).css(css);
                 return paramData.schedules[id].height;
             };
- */
-            var drawSchedule = function(id) {
-                var id2 = paramData.options.classnames.schedule + id;
-                jqueryThis.append("<div class='" + paramData.options.classnames.schedule + "' id='" + id2 + "'>" + paramData.schedules[id].title + "<br>" + paramData.schedules[id].start + "〜" + paramData.schedules[id].end + "</div>");
-                var css = {
-                    height: paramData.schedules[id].height,
-                    marginTop: marginTop,
-                    marginLeft: marginLeft,
-                    zIndex: zIndex
-                };
-                $("#" + id2).css(css);
-                return paramData.schedules[id].height;
-            };
-            
             for (i5 = 0; i5 < timeList.length; i5++) {
                 var kind = timeList[i5].kind;
                 zIndex++;
