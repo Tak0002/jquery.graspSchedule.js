@@ -8,39 +8,26 @@ h1{
 p{
     margin:20px;
 }
-#howtouse{
+#howtouse,#demo{
     margin:20px;
 }
 .schedule, .schedule2{
-    position: absolute;
     width: 400px;
     background-color: #c0392b;
     border: #ecf0f1 solid 1px;
     padding: 3px;
-}
-.schedule{
-    height: 70px;
-}
-.schedule2{
-    height: 70px;
 }
 
 .schedule:hover, .schedule2:hover{
     background-color: #e74c3c;
 }
 .event, .event2{
-    position: absolute;
     margin-left: 40px;
     width: 350px;
     background-color: #2980b9;
     padding: 3px;
 }
-.event{
-    //height: 100px;
-}
-.event2{
-    height: 50px;
-}
+
 .event:hover, .event2:hover{
     background-color: #3498db;
 }
@@ -49,10 +36,8 @@ p{
     height: 0px;
 }
 #test1{
-    margin-top: 50px;
     margin-left:20px;
-    width: 2px;
 }
 #test2{
-    margin-left: 500px;
+    margin-left: 530px;
 }

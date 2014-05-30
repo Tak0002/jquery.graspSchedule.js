@@ -58,8 +58,7 @@
         },
         {
             "date": "2014/05/10 14:30",
-            "title": "facebook更新",
-            "css" : {"height":"200px"}
+            "title": "facebook更新"
         },
         {
             "date": "2014/05/10 20:30",
@@ -78,6 +77,9 @@
             "title": "ツイートなう"
         }
 
-    ]
-
+    ],
+    "options":{
+        "time":true,
+        "timeFormat":"HH:mm"
+    }
 }
