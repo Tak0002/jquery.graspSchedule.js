@@ -15,11 +15,14 @@ See http://tak0002.github.io/jquery.graspSchedule.js/
 How to use
 ====================
 
+Load jQuery and this plugin.
+
 ```html
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="jquery.graspSchedule.js"></script>
 ```
 
+use graspSchedule
 
 ```javascript
 var schedules = [ //"schedules" is list for events which have start and end.
@@ -72,6 +75,8 @@ $('#schedule').graspSchedule({
     }
 });
 ```
+
+Style sheet
 
 ```css
 .schedule{
