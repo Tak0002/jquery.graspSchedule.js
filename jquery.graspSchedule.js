@@ -1,4 +1,4 @@
-// jQuery.blockSchedule.js v0.0.1
+// jQuery.graspSchedule.js v0.0.1
 // (c) 2014 Takahiro Watanabe (w-001@sfc.wide.ad.jp)
 // The MIT License
 
