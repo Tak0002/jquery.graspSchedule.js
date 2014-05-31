@@ -68,9 +68,10 @@ $('#schedule').graspSchedule({
             zIndexStart:0,
             marginTop:"0px",
             marginLeft:"0px",
-            time:false,//show time in left side.
-            timeFormat:'yyyy年MM月dd日(ddd)HH:mm',
-            daysFormat:['日', '月', '火', '水', '木', '金', '土'] 
+            },
+        time:true,
+        timeFormat:'yyyy/MM/dd(ddd)HH:mm',
+        daysFormat:['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
         }
     }
 });
@@ -94,3 +95,10 @@ Style sheet
     padding: 3px;
 }
 ```
+
+
+
+License
+====================
+
+The MIT License (MIT)
