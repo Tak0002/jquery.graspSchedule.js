@@ -106,7 +106,7 @@
             if (typeof paramData.options.classnames.event === "undefined") {
                 paramData.options.classnames.event = 'event';
             }
-            if (typeof paramData.options.classnames.event === "undefined") {
+            if (typeof paramData.options.classnames.time === "undefined") {
                 paramData.options.classnames.time = 'time';
             }
             if (typeof paramData.options.css === "undefined") {
