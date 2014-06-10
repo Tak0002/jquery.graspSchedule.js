@@ -71,7 +71,7 @@ var schedules = [ //"schedules" is list for events which have start and end.
             end: "2014/05/10 2:41",
             start: "2014/05/10 2:30",
             title: "Conference B &lt;br&gt;", //You can use html tags
-            css:{backgroundColor:"#f39c12",height:100px;}
+            css:{backgroundColor:"#f39c12",height:"100px"}
            //You can use most of CSS properties.But only pixel is allow for height.
         }
     ];
@@ -86,6 +86,7 @@ var events = [ //"events" is list for events which have only one time.
             css:{height:"302px"}
             //You can use most of CSS properties.But only pixel is allow for height.
         };
+    ];
 $('#schedule').graspSchedule({
     schedules:schedules,
     events:events,
