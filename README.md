@@ -18,7 +18,7 @@ How to use
 Load jQuery and this plugin.
 
 ```html
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="jquery.graspSchedule.js"></script>
 ```
 
