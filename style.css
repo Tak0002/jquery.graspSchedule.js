@@ -11,6 +11,9 @@ p{
 #howtouse,#demo{
     margin:20px;
 }
+#howtouse{
+    margin-top: 1500px;
+}
 .schedule, .schedule2{
     width: 400px;
     background-color: #c0392b;
