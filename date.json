@@ -3,78 +3,78 @@
         {
             "end": "2014/05/10 3:00",
             "start": "2014/05/10 1:40",
-            "title": "夜間対応"
+            "title": "schedule1"
         },
         {
             "end": "2014/05/10 2:41",
             "start": "2014/05/10 2:30",
-            "title": "スカイプ会議<br>CSSも適応できます",
+            "title": "schedule2<br>with style",
             "css":{"background-color":"#f39c12"}
         },
         {
             "end": "2014/05/10 17:41",
             "start": "2014/05/10 10:30",
-            "title": "授業"
+            "title": "schedule3"
         },
         {
             "end": "2014/05/10 20:41",
             "start": "2014/05/10 15:30",
-            "title": "仕事"
+            "title": "schedule3"
         },
         {
             "end": "2014/05/10 22:41",
             "start": "2014/05/10 21:30",
-            "title": "ミーティング"
+            "title": "schedule4"
         },
         {
             "end": "2014/05/10 16:30",
             "start": "2014/05/10 15:55",
-            "title": "ネットワーク産業論"
+            "title": "schedule5"
         },
         {
             "end": "2014/05/10 19:55",
             "start": "2014/05/10 18:30",
-            "title": "研究会"
+            "title": "schedule6"
         }
 
     ],
     "events": [
         {
             "date": "2014/05/10 16:00",
-            "title": "ツイート１なう"
+            "title": "event1"
         },
         {
             "date": "2014/05/10 17:00",
-            "title": "マルチメディアの挿入もできます。<br><img src='http://wepia.biz/wlogo.png'/>",
+            "title": "event2 with Image<br><img src='http://wepia.biz/wlogo.png'/>",
             "css":{"height":"302px"}
         },
         {
             "date": "2014/05/10 10:00",
-            "title": "ツイート３なう"
+            "title": "breakfast"
         },
         {
             "date": "2014/05/10 2:40",
-            "title": "4sqチェックイン４＠僻地なう"
+            "title": "4sq Check-in"
         },
         {
             "date": "2014/05/10 14:30",
-            "title": "facebook更新"
+            "title": "facebook post"
         },
         {
             "date": "2014/05/10 20:30",
-            "title": "ツイート６なう。<br>これはツイートですこれは字数を稼ぐテストです。<br>これはテストです。<br>これはツイートを挿入するテストです。<br>これはテストです。<br>これはテストです字数を稼ぎたいのです。テストですつと。"
+            "title": "Long text<br>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
         },
         {
             "date": "2014/05/10 2:50",
-            "title": "ツイート７なう"
+            "title": "tweet1"
         },
         {
             "date": "2014/05/10 15:40",
-            "title": "ツイート８なう"
+            "title": "tweet2"
         },
         {
             "date": "2014/05/10 2:35",
-            "title": "ツイートなう"
+            "title": "tweet3"
         }
 
     ],
