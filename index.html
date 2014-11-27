@@ -7,7 +7,7 @@
         <link rel="shortcut icon" href="http://wepia.biz/favicon.ico">
         <link rel="stylesheet" href="style.css">
         <link href="external/google-code-prettify/prettify.css" rel="stylesheet">
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="jquery.graspSchedule.js"></script>
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
         <script src="external/google-code-prettify/prettify.js"></script>
@@ -37,6 +37,7 @@
                                 marginLeft:"0px"
                             },
                             time:true,
+                            insideTime:false,
                             timeFormat:'yyyy年MM月dd日(ddd)HH:mm',
                             daysFormat:['日', '月', '火', '水', '木', '金', '土']
                             //ピクセルで指定するようにお願いします。
@@ -53,13 +54,19 @@
         <a href="https://github.com/Tak0002/jquery.graspSchedule.js"><img style="z-index: 10000;position: fixed; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
         <h1>jQuery GraspSchedule.js</h1>
         <p>
-            jQuery GraspSchedule.js supports to grasp of complex schedules.<br>
-            This plugin can visualize complex schedules from time list.<br>
-            You can use it for Life-log application or webpage for time schedule.
+            graspSchedule.js is a simple jQuery calendar plugin used to visualize complex schedules & events loading from JSON data, a little similar to the timeline or event calendar.<br>
+           <a href="https://twitter.com/share" class="twitter-share-button" data-via="Tak0002" data-size="large">Tweet</a>
         </p>
+        <h2 id="demo">Demo</h2>
+        <div class="test" id="test1">Sample1</div>
+        <div class="test" id="test2">Sample2</div>
         <div id="howtouse">
-        <a href="https://twitter.com/share" class="twitter-share-button" data-via="Tak0002" data-size="large">Tweet</a>
             <h2>How to use</h2>
+            Load jQuery JavaScript library and the jQuery graspSchedule.js script on your web page/application.
+            <pre class="prettyprint linenums">
+&lt;script src=&quot;//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;jquery.graspSchedule.js&quot;&gt;&lt;/script&gt;</pre>
+            Create your custom schedules & events. The data structure should be like this:
             <pre class="prettyprint linenums">
 var schedules = [ //"schedules" is list for events which have start and end.
         {
@@ -78,7 +85,7 @@ var schedules = [ //"schedules" is list for events which have start and end.
 var events = [ //"events" is list for events which have only one time.
         {
             date: "2014/05/10 16:00",
-            title: "I tweeted at this time."
+            title: "tweeted at this time."
         },
         {
             date: "2014/05/10 17:00",
@@ -86,34 +93,17 @@ var events = [ //"events" is list for events which have only one time.
             css:{height:"302px"}
             //You can use most of CSS properties.But only pixel is allow for height.
         };
-    ];
+    ]; </pre>
+            Create an empty container element for the plugin.
+            <pre class="prettyprint linenums">
+&lt;div id=&quot;schedule&quot;&gt;&lt;/div&gt;</pre>
+            Initialize the plugin.
+            <pre class="prettyprint linenums">
 $('#schedule').graspSchedule({
     schedules:schedules,
-    events:events,
-    options:{ // You can change default setting if you want. Not require.
-        classnames: { //If you use this plugin many time in a page, you have to change these.
-            schedule: "schedule",
-            event: "event"
-        },
-        css:{ //Change default height.
-            event:{ //Use pixel.
-                height:"50px"
-            },
-            schedule:{
-                height:"70px"
-            },
-            zIndexStart:0,
-            marginTop:"0px",
-            marginLeft:"0px",
-            },
-        time:true,
-        timeFormat:'yyyy/MM/dd(ddd)HH:mm',
-        daysFormat:['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-        }
-    }
-});
-            </pre>
-            You need to set style-sheet to show schedule boxes.
+    events:events
+});</pre>
+            Add custom CSS to style the schedules & events.
             <pre class="prettyprint linenums">
 .schedule{
     position: absolute; 
@@ -128,12 +118,36 @@ $('#schedule').graspSchedule({
     width: 350px;
     background-color: #2980b9;
     padding: 3px;
-}
+}</pre>
+            Available Options.
+            <pre class="prettyprint linenums">
+$(&#039;#schedule&#039;).graspSchedule({
+    schedules:schedules,
+    events:events,
+    options:{ // You can change default setting. Not require.
+        classnames: { //If you use this plugin many time in a page, you have to change these.
+            schedule: &quot;schedule&quot;,
+            event: &quot;event&quot;,
+            time: &quot;time&quot;
+        },
+        css:{
+            event:{
+                height:&quot;50px&quot;
+            },
+            schedule:{
+                height:&quot;70px&quot;
+            },
+            zIndexStart:0,
+            marginTop:&quot;0px&quot;,
+            marginLeft:&quot;0px&quot;,
+            },
+        time:true,//show time on left side
+        insideTime:true,//show time inside
+        timeFormat:&#039;yyyy/MM/dd(ddd)HH:mm&#039;,
+        daysFormat:[&#039;Sun&#039;, &#039;Mon&#039;, &#039;Tue&#039;, &#039;Wed&#039;, &#039;Thu&#039;, &#039;Fri&#039;, &#039;Sat&#039;]
+        }
+    }</pre>
     </div>
-            </pre>
-        <h2 id="demo">Demo</h2>
-        <div class="test" id="test1">Sample1</div>
-        <div class="test" id="test2">Sample2</div>
 
     </body>
 </html>
