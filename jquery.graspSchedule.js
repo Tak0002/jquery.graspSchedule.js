@@ -1,5 +1,6 @@
 // jQuery.graspSchedule.js v0.2.0
-// (c) 2014 Takahiro Watanabe (w-001@sfc.wide.ad.jp)
+// (c) 2015 Takahiro Watanabe (w@wepia.biz)
+// http://wepia.biz
 // The MIT License
 
 (function ($) {
