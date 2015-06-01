@@ -45,7 +45,7 @@
         },
         {
             "date": "2014/05/10 17:00",
-            "title": "event2 with Image<br><img src='http://wepia.biz/wlogo.png'/>",
+            "title": "event2 with Image<br><a href='http://wepia.biz'><img src='http://wepia.biz/wlogo.png'/></a>",
             "css":{"height":"302px"}
         },
         {

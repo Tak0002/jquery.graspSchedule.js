@@ -133,3 +133,8 @@ fieldset[disabled] .btn-default.active {
     color: #fff;
     background-color: #333;
 }
+footer{
+    width: 100%;
+    text-align: center;
+    padding: 30px;
+}
