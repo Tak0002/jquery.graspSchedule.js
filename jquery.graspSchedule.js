@@ -159,7 +159,7 @@
                             height = height + getEventHight(timeList[i4].id) + 15;
                         }
                         if (timeList[i4].kind === 'start') {
-                            height = height + getScheduleHight(timeList[i4].id) + 10;
+                            height = height + getScheduleHight(timeList[i4].id) + 5;
                         }
                     }
                     paramData.schedules[timeList[i3].id].height = height;
