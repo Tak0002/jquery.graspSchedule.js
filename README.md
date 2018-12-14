@@ -125,5 +125,8 @@ The MIT License (MIT)
 
 Contact
 ====================
-
+Try to reach original developer;
 http://wepia.biz
+
+If you do not get a reply from him/her, contact with me via muradkarakas@gmail.com
+
