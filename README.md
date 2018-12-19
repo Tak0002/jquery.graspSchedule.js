@@ -84,6 +84,9 @@ Add custom CSS to style the schedules & events.
     background-color: #2980b9;
     padding: 3px;
 }
+.time {
+    min-width: 50px;
+}
 ```
 
 Available Options.
