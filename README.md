@@ -71,7 +71,7 @@ Add custom CSS to style the schedules & events.
 
 ```css
 .schedule{
-    position: absolute; 
+    position: absolute;
     width: 400px;
     background-color: #c0392b;
     border: #ecf0f1 solid 1px;
@@ -128,8 +128,4 @@ The MIT License (MIT)
 
 Contact
 ====================
-Try to reach original developer;
 http://wepia.biz
-
-If you do not get a reply from him/her, contact with me via muradkarakas@gmail.com
-
