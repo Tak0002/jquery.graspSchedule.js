@@ -38,6 +38,18 @@ var schedules = [ //"schedules" is list for events which have start and end.
         //You can use most of CSS properties.But only pixel is allow for height.
     }
 ];
+var events = [ //"events" is list for events which have only one time.
+        {
+            date: "2014/05/10 16:00",
+            title: "tweeted at this time."
+        },
+        {
+            date: "2014/05/10 17:00",
+            title: "You can use media. &lt;br&gt;&lt;img src=&#039;http://wepia.biz/wlogo.png&#039;/&gt;",
+            css:{height:"302px"}
+            //You can use most of CSS properties.But only pixel is allow for height.
+        };
+    ];
 ```
 
 Create an empty container element for the plugin.
@@ -71,6 +83,9 @@ Add custom CSS to style the schedules & events.
     width: 350px;
     background-color: #2980b9;
     padding: 3px;
+}
+.time {
+    min-width: 50px;
 }
 ```
 
@@ -111,8 +126,10 @@ License
 
 The MIT License (MIT)
 
-
 Contact
 ====================
-
+Try to reach original developer;
 http://wepia.biz
+
+If you do not get a reply from him/her, contact with me via muradkarakas@gmail.com
+
